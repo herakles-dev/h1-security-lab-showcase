@@ -2,11 +2,11 @@
 
 **An AI that hunts bugs for a living. Mostly it finds its own.**
 
-H1 Security Lab is what happens when you hand an AI agent a Pixel phone, 37 security tools, and a HackerOne account, then tell it to go find vulnerabilities. Not "summarize this scan output" — actually orchestrate the hunt. Pick the target. Run the recon. Decide what to test. Prove the bug exists. Write the report. And when it inevitably calls a target "secure" while a real bug hides in a class it marked "skipped" — rewrite its own methodology so it can never make that mistake again.
+H1 Security Lab is what happens when you hand an AI agent a Pixel phone, 37 security tools, and a HackerOne account, then tell it to go find vulnerabilities. Not "summarize this scan output" ... actually orchestrate the hunt. Pick the target. Run the recon. Decide what to test. Prove the bug exists. Write the report. And when it inevitably calls a target "secure" while a real bug hides in a class it marked "skipped" - rewrite its own methodology so it can never make that mistake again.
 
 The brain is Claude Code running in a terminal. The hands are 26 custom CLI tools that speak JSON. The conscience is a 9-gate quality system that exists entirely because the early versions of this system had none.
 
-This repo is the sanitized walkthrough of that architecture — how it works, why each piece exists (spoiler: because something failed without it), and what happened across 22 real, authorized HackerOne hunts.
+This repo is the sanitized walkthrough of that architecture - how it works, why each piece exists (spoiler: because something failed without it), and what happened across 22 real, authorized HackerOne hunts.
 
 ## What This Is / What This Is NOT
 
