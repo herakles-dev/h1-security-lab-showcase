@@ -95,6 +95,6 @@ lands a fix also lands the test that proves the fix holds — and, more
 importantly, that it keeps holding the next time something else changes.
 Without that, the feedback loop inverts: instead of each cycle compounding on
 the last, it would eventually re-break something a prior cycle already
-closed. The 29 specs that have shipped against this codebase did not
+closed. An assertion without a regression suite is a prayer. The 29 specs that have shipped against this codebase did not
 regress each other's fixes. The 909 tests are the reason that's a
 verifiable claim and not an assertion.

@@ -6,7 +6,7 @@ Most write-ups of security tooling describe what the tooling can do. This chapte
 
 ### 1. Gates certify accounting, not attack
 
-This is the system's most important lesson, learned the hard way. Passing every gate means the process was followed — every element in the coverage ledger was dispositioned, every required pre-check ran. It does not mean the target is secure. On one hunt the dashboard was fully green and the conclusion was "no finding." That conclusion was wrong: a real bug was sitting in a class that had been marked tested when it hadn't actually been attacked. A green dashboard can hide real bugs in exactly the areas it says are covered. The fix was not a new gate — it was accepting that gates measure diligence, not outcomes, and treating a clean dashboard as an invitation to look harder, not a reason to stop.
+This is the system's most important lesson, learned the hard way. Passing every gate means the process was followed — every element in the coverage ledger was dispositioned, every required pre-check ran. It does not mean the target is secure. On one hunt the dashboard was fully green and the conclusion was "no finding." That conclusion was wrong: a real bug was sitting in a class that had been marked tested when it hadn't actually been attacked. The dashboard was green, the target had a bug, and the dashboard was not wrong — it just wasn't measuring what we thought it was measuring. A green dashboard can hide real bugs in exactly the areas it says are covered. The fix was not a new gate — it was accepting that gates measure diligence, not outcomes, and treating a clean dashboard as an invitation to look harder, not a reason to stop.
 
 ### 2. Public prior-art checks can't catch private duplicates
 

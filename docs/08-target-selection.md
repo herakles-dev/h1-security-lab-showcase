@@ -4,7 +4,7 @@ Before a single request gets sent, the system has to answer a quieter question: 
 
 ## The Problem with Prestige
 
-The first version of this scoring model ranked programs by generic profitability: bounty ceiling, program reputation, report volume. It put Netflix at #1. On paper that looks right — huge payouts, a famous name, lots of reports. In practice it's a terrible pick. Netflix runs a $6.4M-plus bounty program, has attracted ten years of researchers, and is about as hardened as a consumer-facing target gets. Hunting Netflix with a general-purpose toolkit is like entering a marathon you have no chance of placing in — the competition has already run every obvious attack a thousand times.
+The first version of this scoring model ranked programs by generic profitability: bounty ceiling, program reputation, report volume. It put Netflix at #1. On paper that looks right — huge payouts, a famous name, lots of reports. In practice it's a terrible pick. Netflix runs a $6.4M-plus bounty program, has attracted ten years of researchers, and is about as hardened as a consumer-facing target gets. Hunting Netflix with a general-purpose toolkit is like entering a marathon you have no chance of placing in — the competition has already run every obvious attack a thousand times. Netflix has paid out over six million dollars in bounties. None of it to us.
 
 The scoring was optimizing for *prestige*, not for *where bugs are actually findable*. Those are different axes, and conflating them meant the system kept recommending the targets everyone else was already beating on.
 

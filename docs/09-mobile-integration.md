@@ -48,7 +48,7 @@ The technique, proven live against a social-commerce target with full certificat
 5. **Verify** the captured credential is actually load-bearing — issue a real authenticated request with it and confirm a non-trivial response — before trusting it for anything downstream.
 6. Feed the verified token into the lab's authenticated-testing tools (IDOR/BOLA sweeps, GraphQL probing, broken-access-control testing), which can now route requests through that same live browser tab when the target's transport defenses would otherwise block a plain HTTP client.
 
-No proxy. No certificate stripped. No root. The credential comes from a login flow the app's own backend considers completely legitimate, because it was.
+No proxy. No certificate stripped. No root. The credential comes from a login flow the app's own backend considers completely legitimate, because it was. The most sophisticated bypass in the toolkit is logging in.
 
 ## DEX Route Mining
 

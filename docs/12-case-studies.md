@@ -16,13 +16,13 @@ WHOOP makes fitness wearables and runs a public bounty program.
 
 **The bug.** One access-control check was missing on a resource where a closely related endpoint correctly enforced it — the kind of inconsistency that only shows up when you actually compare sibling routes rather than trusting that a class was "covered." It had been sitting inside a class the ledger recorded as skipped, with a plausible-sounding written justification and no actual probe behind it.
 
-**Lesson one: gates certify accounting, not attack.** A gate can confirm that a step was logged. It cannot confirm the step was done honestly. All-green does not mean secure; it means the paperwork was filled in. This became the lab's central doctrine and drove a rewrite of how skips work:
+**Lesson one: gates certify accounting, not attack.** A gate can confirm that a step was logged. It cannot confirm the step was done honestly. All-green does not mean secure; it means the paperwork was filled in. The system declared the target secure with the confidence of someone who has never been wrong before, which, at the time, it hadn't been — it just also hadn't been right. This became the lab's central doctrine and drove a rewrite of how skips work:
 
 - A "skipped" disposition now requires either a real probe result with evidence, or a specific, limited reason code (unreachable by tooling, out of scope, read-only public). A free-text excuse alone is rejected.
 - If more than 60% of a ledger's skips lack that backing, the coverage gate blocks outright — replaying WHOOP's original ledger against this rule, over 85% unbacked, failed immediately.
 - Coverage and completeness gates now require every tracked element to carry a real disposition, and a cell that turns out to hide a genuine bug has to be recorded as a finding, cross-checked against the write-up itself.
 
-**Lesson two: the duplicate.** The validated finding was submitted and closed as a duplicate of a report filed into the program's private queue two weeks earlier. No amount of public searching could have surfaced that, because it was never public.
+**Lesson two: the duplicate.** The validated finding was submitted and closed as a duplicate of a report filed into the program's private queue two weeks earlier. No amount of public searching could have surfaced that, because it was never public. We found a real bug, proved it was real, got told someone else proved it was real two weeks ago, and collected exactly nothing for the trouble.
 
 That gap became a new gate: before any report is generated, the system searches public disclosure history and records an explicit verdict — including an honest "acknowledged, can't rule out a private duplicate" outcome when that's the true state, rather than quietly treating a clean public search as proof of originality.
 

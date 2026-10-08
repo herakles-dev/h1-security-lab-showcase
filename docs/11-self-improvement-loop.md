@@ -84,4 +84,4 @@ evolve — new frameworks, new auth providers, new ways of hiding the same old b
 playbook from a year ago is worse today than it was when it was written, simply because it never
 learned anything in between. This system doesn't have that problem, not because someone sat down
 and redesigned it, but because twenty-some hunts' worth of lessons have been mechanically
-absorbed into its code and its tests, one dated note at a time.
+absorbed into its code and its tests, one dated note at a time. Gut instinct with a bus factor of one is not a methodology — it's a countdown.
