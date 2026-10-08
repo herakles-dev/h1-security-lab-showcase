@@ -1,0 +1,31 @@
+graph LR
+    A[Program Discovery] --> B[HSS Scoring]
+    B --> C[Session Scaffold]
+    C --> D[Compliance Gate]
+    D --> E[Recon Phase]
+    E --> F[Auth Phase]
+    F --> G[Testing Phase]
+    G --> H[Validation Phase]
+    H --> I[Coverage Check]
+    I --> J{Outcome}
+    J -->|Vulnerability Confirmed| K[Report]
+    J -->|No Exploitable Issue| L[Clean Kill]
+    K --> M[Outcomes Ledger]
+    L --> M
+    M --> N[Feedback Loop]
+    N -.System Improvement.-> A
+
+    style A fill:#1e3a5f,color:#fff
+    style B fill:#1e3a5f,color:#fff
+    style C fill:#2d5016,color:#fff
+    style D fill:#5f1e2d,color:#fff
+    style E fill:#5f3a1e,color:#fff
+    style F fill:#5f3a1e,color:#fff
+    style G fill:#5f3a1e,color:#fff
+    style H fill:#5f3a1e,color:#fff
+    style I fill:#1e5f4a,color:#fff
+    style J fill:#4a1e5f,color:#fff
+    style K fill:#2d5016,color:#fff
+    style L fill:#2d5016,color:#fff
+    style M fill:#5f4a1e,color:#fff
+    style N fill:#5f4a1e,color:#fff

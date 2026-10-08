@@ -1,0 +1,29 @@
+stateDiagram-v2
+    [*] --> Scaffolded: scaffold session (spec, gates, state dirs)
+
+    Scaffolded --> CompliancePassed: program rules read, scope confirmed
+    CompliancePassed --> ReconComplete: assets enumerated, tech fingerprinted
+    ReconComplete --> Authenticated: session or token obtained (or waived)
+    Authenticated --> Testing: decision-tree driven class sweep
+    Testing --> Validated: findings reproduced with evidence
+    Validated --> CoverageComplete: every element in ledger dispositioned
+    CoverageComplete --> CreativePassDone: 3+ adversarial vectors probed
+    CreativePassDone --> PriorArtChecked: hacktivity search run, verdict recorded
+
+    PriorArtChecked --> ReportReady: confirmed, provable vulnerability
+    PriorArtChecked --> CleanKill: no exploitable issue found
+
+    ReportReady --> [*]: submitted to program
+    CleanKill --> [*]: outcome logged, session archived
+
+    note right of Testing
+        Includes decision-tree,
+        think-like-dev devil's
+        advocate pass
+    end note
+
+    note right of CreativePassDone
+        Each vector probe-result:
+        tested, attempted-blocked,
+        or infeasible
+    end note

@@ -1,0 +1,84 @@
+graph TD
+    subgraph L1["Intel Layer"]
+        A1[Program Discovery]
+        A2[h1-rank Hunt Success Score]
+        A3[h1-api Scope and Eligibility]
+        A1 --> A2 --> A3
+    end
+
+    subgraph L2["Session Lifecycle"]
+        B1[Scaffold Session]
+        B2[spec.md]
+        B3[gates.md]
+        B4[state Directory]
+        B1 --> B2 --> B3 --> B4
+    end
+
+    subgraph L3["CLI Toolkit"]
+        C1[26 h1-star Tools]
+        C2[JSON Input and Output]
+        C3[Scope Filtered Requests]
+        C1 --> C2 --> C3
+    end
+
+    subgraph L4["Agent Formation"]
+        D1[13 Specialist Agents]
+        D2[4 Sequential Waves]
+        D1 --> D2
+    end
+
+    subgraph L5["Gate System"]
+        E1[9 Sequential Enforcement Gates]
+        E2[Compliance through Hacktivity Check]
+        E1 --> E2
+    end
+
+    subgraph L6["Coverage Ledger"]
+        F1[Element Granular Tracking]
+        F2[Tested Finding Skipped Blocked]
+        F1 --> F2
+    end
+
+    subgraph L7["Feedback Loop"]
+        G1[Orchestrator Notes]
+        G2[Improvement Specs]
+        G3[Code and Tests]
+        G4[Merge to Master]
+        G1 --> G2 --> G3 --> G4
+    end
+
+    subgraph L8["Open Source Arsenal"]
+        H1[37 Security Tools]
+        H2[9660 Nuclei Templates]
+        H3[6000 Wordlists]
+        H1 --- H2 --- H3
+    end
+
+    subgraph L9["Mobile Integration"]
+        I1[Hek Pixel 6a GrapheneOS]
+        I2[Rooted Emulator Lane]
+        I3[Two Axis Integrity Classification]
+        I1 --> I3
+        I2 --> I3
+    end
+
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+    L4 --> L5
+    L5 --> L6
+    L6 --> L7
+    L7 -.feeds improvements back into.-> L3
+    L3 --> L8
+    L3 --> L9
+    L9 --> L6
+
+    style L1 fill:#1e3a5f,color:#fff
+    style L2 fill:#2d5016,color:#fff
+    style L3 fill:#5f3a1e,color:#fff
+    style L4 fill:#4a1e5f,color:#fff
+    style L5 fill:#5f1e2d,color:#fff
+    style L6 fill:#1e5f4a,color:#fff
+    style L7 fill:#5f4a1e,color:#fff
+    style L8 fill:#2d2d5f,color:#fff
+    style L9 fill:#1e5f5f,color:#fff

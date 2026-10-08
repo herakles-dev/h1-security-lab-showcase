@@ -1,0 +1,32 @@
+graph TD
+    Start{App Integrity Tier?}
+
+    Start -->|None: no attestation,\nno pinning| None[Emulator MITM Lane]
+    None --> NoneStep1[Rooted KVM Emulator]
+    NoneStep1 --> NoneStep2[Frida plus Mitmproxy]
+    NoneStep2 --> NoneStep3[Full Traffic Capture]
+
+    Start -->|Medium: pinning,\nno attestation| Medium[Emulator Frida Bypass Lane]
+    Medium --> MedStep1[Rooted KVM Emulator]
+    MedStep1 --> MedStep2[Frida Pinning Bypass]
+    MedStep2 --> MedStep3[Selective Intercept]
+
+    Start -->|Hard: attestation\nand or pinning| Hard[Web Capture Lane]
+    Hard --> HardStep1[Genuine Device: Hek Pixel 6a]
+    HardStep1 --> HardStep2[Chrome over CDP via ADB]
+    HardStep2 --> HardStep3[Browser Login Flow]
+    HardStep3 --> HardStep4[Token Capture from Live Session]
+
+    NoneStep3 --> Surface[Feed into h1-surface map]
+    MedStep3 --> Surface
+    HardStep4 --> SeedAuth[Seed h1-auth with Captured Token]
+    SeedAuth --> Surface
+
+    Surface --> Candidates[IDOR BOLA GraphQL Candidates]
+
+    style Start fill:#4a1e5f,color:#fff
+    style None fill:#1e3a5f,color:#fff
+    style Medium fill:#5f3a1e,color:#fff
+    style Hard fill:#5f1e2d,color:#fff
+    style Candidates fill:#2d5016,color:#fff
+    style Surface fill:#1e5f4a,color:#fff

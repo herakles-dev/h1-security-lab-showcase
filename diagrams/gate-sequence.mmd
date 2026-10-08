@@ -1,0 +1,68 @@
+graph TD
+    Start([Hunt Session Start]) --> G1
+
+    G1[Gate 1: Compliance]
+    N1[["Checks: program rules read,\nscope acknowledged"]]
+    G1 -.-> N1
+    G1 -->|PASS| G2
+    G1 -->|FAIL| X1[Blocked: read program policy first]
+
+    G2[Gate 2: Recon]
+    N2[["Checks: attack surface mapped,\nassets enumerated"]]
+    G2 -.-> N2
+    G2 -->|PASS| G3
+    G2 -->|FAIL| X2[Blocked: complete reconnaissance]
+
+    G3[Gate 3: Auth Session]
+    N3[["Checks: authenticated session\nestablished or waived"]]
+    G3 -.-> N3
+    G3 -->|PASS| G4
+    G3 -->|FAIL| X3[Blocked: obtain auth or waive with reason]
+
+    G4[Gate 4: Validation]
+    N4[["Checks: candidate findings\nreproduced, not theoretical"]]
+    G4 -.-> N4
+    G4 -->|PASS| G5
+    G4 -->|FAIL| X4[Blocked: reproduce before proceeding]
+
+    G5[Gate 5: Exploitation Proof]
+    N5[["Checks: finding cell has matching\nartifacts/findings doc"]]
+    G5 -.-> N5
+    G5 -->|PASS| G6
+    G5 -->|FAIL| X5[Blocked: attach concrete evidence]
+
+    G6[Gate 6: Coverage]
+    N6[["Checks: elements dispositioned,\nskip ratio below threshold"]]
+    G6 -.-> N6
+    G6 -->|PASS| G7
+    G6 -->|FAIL| X6[Blocked: disposition remaining elements]
+
+    G7[Gate 7: Completeness]
+    N7[["Checks: every element and cell\nin the ledger accounted for"]]
+    G7 -.-> N7
+    G7 -->|PASS| G8
+    G7 -->|FAIL| X7[Blocked: close ledger gaps]
+
+    G8[Gate 8: Creative Pass]
+    N8[["Checks: at least 3 adversarial\nvectors probed with results"]]
+    G8 -.-> N8
+    G8 -->|PASS| G9
+    G8 -->|FAIL| X8[Blocked: run creative playbook]
+
+    G9[Gate 9: Hacktivity Check]
+    N9[["Checks: public prior-art search\nrun, verdict recorded"]]
+    G9 -.-> N9
+    G9 -->|PASS| Done([Report Eligible])
+    G9 -->|FAIL| X9[Blocked: run hacktivity-check first]
+
+    style Start fill:#2d5016,color:#fff
+    style Done fill:#2d5016,color:#fff
+    style X1 fill:#5f1e2d,color:#fff
+    style X2 fill:#5f1e2d,color:#fff
+    style X3 fill:#5f1e2d,color:#fff
+    style X4 fill:#5f1e2d,color:#fff
+    style X5 fill:#5f1e2d,color:#fff
+    style X6 fill:#5f1e2d,color:#fff
+    style X7 fill:#5f1e2d,color:#fff
+    style X8 fill:#5f1e2d,color:#fff
+    style X9 fill:#5f1e2d,color:#fff

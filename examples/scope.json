@@ -1,0 +1,36 @@
+{
+  "_fabricated": "This is a fabricated example for illustration purposes. No real targets, vulnerabilities, or program data is included.",
+  "program": "example-program",
+  "scope_source": "h1_api",
+  "generated_at": "2026-01-15T09:00:00.000000+00:00",
+  "assets": [
+    {
+      "identifier": "api.example.com",
+      "type": "url",
+      "eligible_for_submission": true,
+      "max_severity": "critical",
+      "instruction": "Primary API host. In scope for all authenticated and unauthenticated testing."
+    },
+    {
+      "identifier": "app.example.com",
+      "type": "url",
+      "eligible_for_submission": true,
+      "max_severity": "high",
+      "instruction": "Consumer-facing web application."
+    },
+    {
+      "identifier": "com.example.app",
+      "type": "google_play_app",
+      "eligible_for_submission": true,
+      "max_severity": "critical",
+      "instruction": "Official Android client, available on Google Play. iOS counterpart out of scope for this snapshot."
+    },
+    {
+      "identifier": "staging.example.com",
+      "type": "url",
+      "eligible_for_submission": false,
+      "max_severity": "none",
+      "instruction": "Internal staging environment. Explicitly excluded from the bug bounty program."
+    }
+  ]
+}

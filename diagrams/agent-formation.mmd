@@ -1,0 +1,53 @@
+graph TD
+    subgraph ORCH["Orchestration Lane"]
+        O1[h1-orchestrator]
+        O2[h1-skill]
+        O1 --> O2
+    end
+
+    subgraph W1["Wave 1: Recon (sequential)"]
+        R1[h1-intel-agent]
+        R2[h1-recon-agent]
+        R1 --> R2
+    end
+
+    subgraph W2["Wave 2: Testing (parallel)"]
+        T1[h1-hunter-agent]
+        T2[h1-auth-agent]
+        T3[h1-api-agent]
+        T4[h1-graphql-agent]
+        T5[h1-race-agent]
+        T6[h1-mobile-agent]
+    end
+
+    subgraph W3["Wave 3: Validation"]
+        V1[h1-validator-agent]
+    end
+
+    subgraph W4["Wave 4: Reporting"]
+        P1[h1-reporter-agent]
+    end
+
+    ORCH -->|assigns formation| W1
+    R2 -->|recon report: assets, endpoints, tech stack| T1
+    R2 -->|recon report| T2
+    R2 -->|recon report| T3
+    R2 -->|recon report| T4
+    R2 -->|recon report| T5
+    R2 -->|recon report| T6
+
+    T1 -->|candidate findings| V1
+    T2 -->|candidate findings| V1
+    T3 -->|candidate findings| V1
+    T4 -->|candidate findings| V1
+    T5 -->|candidate findings| V1
+    T6 -->|candidate findings| V1
+
+    V1 -->|validated findings with evidence| P1
+    P1 -->|final report draft| ORCH
+
+    style ORCH fill:#4a1e5f,color:#fff
+    style W1 fill:#1e3a5f,color:#fff
+    style W2 fill:#5f3a1e,color:#fff
+    style W3 fill:#1e5f4a,color:#fff
+    style W4 fill:#5f1e2d,color:#fff

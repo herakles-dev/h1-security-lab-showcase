@@ -1,0 +1,31 @@
+{
+  "_fabricated": "This is a fabricated example for illustration purposes. No real targets, vulnerabilities, or program data is included.",
+  "program": "example-program",
+  "generated_at": "2026-01-16T17:30:00.000000+00:00",
+  "vectors": [
+    {
+      "id": 1,
+      "vector": "Race condition in coupon redemption — fire N concurrent redeem requests for a single-use promo code to see if more than one succeeds",
+      "probe_result": "tested",
+      "outcome": "no_finding",
+      "detail": "20 concurrent POST /api/v1/promos/redeem requests against a fresh single-use code; exactly 1 succeeded (HTTP 200), 19 received HTTP 409 'already redeemed'. DB-level unique constraint with row locking confirmed, no TOCTOU window observed across 5 repeated runs.",
+      "evidence": "artifacts/tools/race-coupon-redeem.log"
+    },
+    {
+      "id": 2,
+      "vector": "GraphQL alias batching to bypass per-request rate limiting on the search endpoint",
+      "probe_result": "attempted-blocked",
+      "outcome": "blocked_by_waf",
+      "detail": "Batched 100 aliased `search(query:)` calls into a single POST. WAF returned HTTP 403 with a Cloudflare challenge page at >15 aliases per request, before the application-layer rate limiter was ever reached. Could not determine whether app-layer protection exists behind the WAF.",
+      "evidence": "artifacts/tools/graphql-alias-batch-search.log"
+    },
+    {
+      "id": 3,
+      "vector": "OAuth `state` parameter fixation — reuse a captured state value across sessions to attempt CSRF on the OAuth callback",
+      "probe_result": "tested",
+      "outcome": "no_finding",
+      "detail": "Captured state token from session 1, replayed it as the state param in session 2's authorization request. Callback handler validates state against a server-side session-bound value (not just presence), so the replayed value was rejected with HTTP 400 'invalid_state'. No CSRF window found.",
+      "evidence": "artifacts/tools/oauth-state-fixation.log"
+    }
+  ]
+}

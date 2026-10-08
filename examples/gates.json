@@ -1,0 +1,62 @@
+{
+  "_fabricated": "This is a fabricated example for illustration purposes. No real targets, vulnerabilities, or program data is included.",
+  "compliance": {
+    "passed": true,
+    "passed_at": "2026-01-15T09:02:11.000000+00:00",
+    "description": "Program rules read, scope verified, test accounts created",
+    "blocks": ["recon", "testing"]
+  },
+  "recon": {
+    "passed": true,
+    "passed_at": "2026-01-15T10:30:44.000000+00:00",
+    "description": "Attack surface mapped, tech fingerprinted, APIs discovered, mobile assets pulled",
+    "blocks": ["auth_session", "testing"]
+  },
+  "auth_session": {
+    "passed": true,
+    "passed_at": "2026-01-15T11:05:02.000000+00:00",
+    "description": "Authenticated session obtained for both test accounts",
+    "blocks": ["testing"]
+  },
+  "validation": {
+    "passed": true,
+    "passed_at": "2026-01-16T14:22:37.000000+00:00",
+    "description": "Findings reproduced 3x, CVSS scored, ineligible check done",
+    "blocks": ["exploitation_proof"],
+    "finding_refs": ["FINDING-001"]
+  },
+  "exploitation_proof": {
+    "passed": true,
+    "passed_at": "2026-01-16T15:10:19.000000+00:00",
+    "description": "Attacker gained something concrete, devil's advocate passed",
+    "blocks": ["reporting"],
+    "finding_refs": ["FINDING-001"]
+  },
+  "coverage": {
+    "passed": true,
+    "passed_at": "2026-01-16T16:00:05.000000+00:00",
+    "description": "Attack-surface coverage accounted for — every high-priority asset×attack-class cell is tested or explicitly skipped-with-reason",
+    "blocks": ["reporting"]
+  },
+  "completeness": {
+    "passed": true,
+    "passed_at": "2026-01-16T16:12:48.000000+00:00",
+    "description": "Adversarial-completeness pass done — every enumerated element dispositioned, 'what didn't we try' pass accepted",
+    "blocks": ["reporting"]
+  },
+  "creative_pass": {
+    "passed": true,
+    "passed_at": "2026-01-16T17:30:00.000000+00:00",
+    "description": "At least 3 creative-pass vectors logged with probe results",
+    "blocks": ["reporting"],
+    "vector_count": 3
+  },
+  "hacktivity_check": {
+    "passed": true,
+    "passed_at": "2026-01-16T18:05:33.000000+00:00",
+    "description": "Public prior-art search run and verdict recorded for every reportable finding",
+    "blocks": ["reporting"],
+    "finding_id": "FINDING-001",
+    "verdict": "no_prior_art"
+  }
+}
