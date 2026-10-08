@@ -11,7 +11,7 @@ Modern mobile apps increasingly ask the platform a question before they'll talk 
 - **JA3/JA4 TLS fingerprinting** — the shape of the TLS handshake itself can out a non-standard HTTP client even before certificate validation happens.
 - **Root/emulator detection** — direct checks for `su` binaries, build fingerprints, and QEMU artifacts.
 
-Stack all four together and a rooted emulator — the default tool in most mobile pentesting guides — fails every one of them simultaneously. The app simply refuses to function, and there's nothing left to intercept.
+Stack all four together and a rooted emulator — the default tool in most mobile pentesting guides — fails every one of them simultaneously. The app simply refuses to function, and there's nothing left to intercept. It doesn't crash or throw an error — it just quietly stops talking to its own backend, which from a debugging standpoint is worse.
 
 The fix isn't a cleverer bypass. It's removing the premise: test on a device that actually passes attestation. A real Pixel phone running a hardened, unmodified OS satisfies Play Integrity's strictest checks while still giving a researcher the control an emulator would have provided — because the control comes from *driving* the device over ADB, not from rooting it.
 
@@ -21,7 +21,7 @@ The lab's mobile testing platform is a physical Pixel 6a running GrapheneOS, nic
 
 Hek connects over wireless ADB, tunneled through the lab's own WireGuard VPN rather than exposed on a local network. That means the orchestrator (running on a separate machine) can drive the device — tap screens, type text, read notifications, install apps, pull APKs — as if it were plugged in locally, from anywhere on the VPN.
 
-One operational detail matters enough to call out: GrapheneOS's wireless-debugging TLS pairing handshake doesn't work with the stock Android `adb` binary shipped on most Linux distros (version ~29). It silently lacks the `pair` subcommand entirely. The fix is using a current `adb-new` binary from a modern platform-tools release — once paired, the device otherwise behaves like any `adb` target. The device's wireless-debugging port also drifts across reboots and toggles, so the tooling re-resolves it from live `adb devices` output rather than trusting a cached value.
+One operational detail matters enough to call out: GrapheneOS's wireless-debugging TLS pairing handshake doesn't work with the stock Android `adb` binary shipped on most Linux distros (version ~29). It silently lacks the `pair` subcommand entirely. An hour of debugging the phone turned out to be an hour of debugging `adb`. The fix is using a current `adb-new` binary from a modern platform-tools release — once paired, the device otherwise behaves like any `adb` target. The device's wireless-debugging port also drifts across reboots and toggles, so the tooling re-resolves it from live `adb devices` output rather than trusting a cached value.
 
 Everything downstream — app installs, UI automation, screenshot capture, static analysis, log reading — is driven through one CLI tool that treats Hek (and a secondary rooted emulator, described below) as interchangeable `--target` backends behind a shared command surface: pull an APK, run static analysis, intercept traffic, seed captured credentials into the authenticated-testing layer.
 

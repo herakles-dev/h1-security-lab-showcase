@@ -26,7 +26,7 @@ Early on, marking a coverage element "skipped" with any plausible free-text reas
 
 ### 6. Multi-agent parallelism was theoretical for a long time
 
-A formation of multiple specialist agents working waves of a hunt in parallel was designed and documented well before it was ever exercised for real. Every hunt before that point ran solo, one agent walking the phases in sequence. The first genuine live parallel run surfaced problems — around how agents hand back results and how those results get reconciled into one coherent session state — that the design documents hadn't anticipated, because nothing had actually forced them to happen. A capability that only exists on paper isn't a capability yet.
+A formation of multiple specialist agents working waves of a hunt in parallel was designed and documented well before it was ever exercised for real. Every hunt before that point ran solo, one agent walking the phases in sequence. The first genuine live parallel run surfaced problems — around how agents hand back results and how those results get reconciled into one coherent session state — that the design documents hadn't anticipated, because nothing had actually forced them to happen. A capability that only exists on paper isn't a capability yet. The documentation describing how agents would coordinate in parallel was thorough, well-structured, and entirely untested.
 
 ### 7. Server-side mobile attestation has no bypass
 

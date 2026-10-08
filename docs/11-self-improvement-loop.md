@@ -65,7 +65,7 @@ encoded in code and gates:
 - **52** orchestrator-notes filed across every hunt run so far
 - **4** full system-review cycles completed
 - **29** improvement specs authored from those reviews
-- Test suite grown from roughly **40** tests at the project's start to **861**
+- Test suite grown from roughly **40** tests at the project's start to **861** — each one commemorates a specific mistake
 - Each review cycle has added somewhere between **40 and 130** new tests
 
 ## Why It Works

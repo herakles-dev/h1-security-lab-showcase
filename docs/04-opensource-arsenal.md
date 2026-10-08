@@ -5,7 +5,7 @@ fuzzer underneath it is a tool anyone can `go install`, `pip install`, or `git c
 today — much of it maintained by the ProjectDiscovery team, OWASP, or a handful of
 well-known independent security researchers. Counting templates and wordlists, the
 underlying toolchain spans 37 distinct open-source tools, 9,600+ vulnerability
-templates, and 6,000+ wordlist files. None of that is the hard part.
+templates, and 6,000+ wordlist files. None of that is the hard part. A tool you can install is a tool. A tool an AI can read is an instrument.
 
 The hard part — and the actual engineering contribution of this project — is the
 layer wrapped around that toolchain: a set of CLI adapters that convert raw,

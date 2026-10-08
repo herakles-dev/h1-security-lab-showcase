@@ -6,7 +6,7 @@ At every step there are more things to check than time allows: many endpoints, m
 
 ## A CLI-first brain
 
-The hunter is Claude Code, Anthropic's CLI agent. It runs in a terminal, executes shell commands, reads files, parses the JSON that tools return, and decides what to run next. There is no separate "AI backend" working behind the scenes. The conversation itself is the hunt record: every command, result, and decision lives in one transcript that can be reviewed afterward.
+The hunter is Claude Code, Anthropic's CLI agent. It runs in a terminal, executes shell commands, reads files, parses the JSON that tools return, and decides what to run next. There is no separate "AI backend" working behind the scenes. The conversation itself is the hunt record: every command, result, and decision lives in one transcript that can be reviewed afterward. Including the decisions that turned out to be wrong, which is most of them.
 
 Around the agent sits a toolkit of 26 purpose-built command-line programs, plus a set of standard, widely used security utilities, all producing structured JSON. The agent's job is to combine them using judgment.
 
@@ -33,7 +33,7 @@ This boundary is enforced by the tooling itself, not just by intent. Before any 
 
 The operating rule is: no theoretical claims, and no inflated severity. Every claim needs evidence that was actually observed, not reasoned about in the abstract. Before writing anything up, the process deliberately drafts the strongest skeptical response first, then checks whether the evidence survives it. The bar for submitting anything is: would this be worth paying for? If not, it doesn't go out.
 
-A corollary matters just as much as the rule: ending a session with "no issues found, thoroughly checked" is a legitimate and honest result. A well-built target should often produce exactly that outcome, and a process that always reports something is a process that is padding its results.
+A corollary matters just as much as the rule: ending a session with "no issues found, thoroughly checked" is a legitimate and honest result. It is also, statistically, the most common one. A well-built target should often produce exactly that outcome, and a process that always reports something is a process that is padding its results.
 
 ## The real innovation: accountability
 

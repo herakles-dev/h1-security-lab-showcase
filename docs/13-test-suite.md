@@ -8,7 +8,7 @@ tests. The growth curve tracks the project's own history: this is a
 spec-driven system (see [Chapter 11](11-self-improvement-loop.md)), and every
 improvement spec that touched a gate, a CLI tool, or the coverage ledger
 shipped its own verification tests alongside the fix. The suite is a byproduct
-of the improvement loop, not a separate QA initiative bolted on afterward.
+of the improvement loop, not a separate QA initiative bolted on afterward. Nobody planned 909 tests — they accreted, one per mistake that was never going to happen twice.
 
 Two directories carry almost all of it: `tests/cli/` (69 files — one per
 `h1-*` subcommand or gate behavior) and `tests/integration/` (pipeline and

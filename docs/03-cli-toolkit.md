@@ -6,7 +6,7 @@ If the agent is the brain, these 26 programs are the hands. Each one is a small,
 
 Three rules hold across all 26 tools, without exception:
 
-**JSON in, JSON out.** Every tool prints a JSON object to stdout on success and a JSON object to stderr on failure. There is no tool that returns prose, a bare exit code, or a human-formatted table as its primary output (a few, like `h1-scope coverage report`, also offer a human-readable view, but the machine-readable path is always there). This matters because the agent is the consumer: it needs to parse results reliably across hundreds of tool calls in a session, not scrape text.
+**JSON in, JSON out.** Every tool prints a JSON object to stdout on success and a JSON object to stderr on failure. There is no tool that returns prose, a bare exit code, or a human-formatted table as its primary output (a few, like `h1-scope coverage report`, also offer a human-readable view, but the machine-readable path is always there). This matters because the agent is the consumer: it needs to parse results reliably across hundreds of tool calls in a session, not scrape text. Prose is for humans. An agent that has to regex its own tool output is debugging two problems at once.
 
 **Scope-filtered by construction.** Any tool that can send a network request to a target — `h1-cors`, `h1-graphql`, `h1-test`, `h1-smuggle`, `h1-gobuster`, `h1-httpx`, `h1-scan`, `h1-jwt`, `h1-surface`, `h1-mobile`, and others — accepts a `--session-dir` flag. When it's passed, the tool loads that session's `scope.json` and checks the target against it *before* the first byte goes out. If the target isn't in scope, the tool exits with an `OUT_OF_SCOPE` JSON error and code 2 — it never fires the request to find out. Run one of these tools without `--session-dir`, and it falls back to "standalone mode" with no scope check, which is useful for ad-hoc testing against something you've already confirmed by hand, but every tool call inside an actual hunt session passes the flag. If the scope-checking module itself fails to import, the tool fails closed (blocks) rather than silently skipping the check.
 
@@ -56,7 +56,7 @@ Most of these tools are a few hundred lines. `h1-scope` is roughly 4,400 — by 
 - **The creative-pass log** (`creative-pass record|report`) — the adversarial, off-the-checklist testing pass gets its own accountable record, separate from the mechanical class sweep.
 - **Session status** (`status`) and the **prior-art check** (`hacktivity-check`) that has to run and pass before any finding gets written up.
 
-One tool, one file, because all of it is really one concern: can this session prove, on demand, exactly what it did and didn't check.
+One tool, one file, because all of it is really one concern: can this session prove, on demand, exactly what it did and didn't check. Every other tool does the hunting. This one keeps the receipts.
 
 ## A composability example
 
